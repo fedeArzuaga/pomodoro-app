@@ -5,6 +5,8 @@ import { setActive, startAddingPomodoro } from '../../actions/pomodoros';
 import { useCountdown } from '../../hooks/useCountdown';
 import { useForm } from '../../hooks/useForm';
 
+const body = document.body;
+
 export const PomodoroCountdown = () => {
 
     const dispatch = useDispatch();
@@ -29,6 +31,7 @@ export const PomodoroCountdown = () => {
         handlePlayCountdown,
         updateCountdown,
         isRunning,
+        setIsRunning,
         isOnSession
     ] = useCountdown({
         minutesTime: active.minutes,
@@ -53,10 +56,26 @@ export const PomodoroCountdown = () => {
     useEffect( () => {
 
         if ( roundsDone > roundsGoalState ) {
+            setIsRunning( false )
             setIsDone( true );
         }
 
     }, [ roundsDone ] )
+
+    useEffect( () => {
+
+        if ( isRunning && isOnSession ) {
+            body.classList.remove('temp-break-time');
+            body.classList.add('temp-session-time');
+        } else if ( isRunning && !isOnSession ) {
+            body.classList.remove('temp-session-time');
+            body.classList.add('temp-break-time');
+        } else {
+            body.classList.remove('temp-break-time');
+            body.classList.remove('temp-session-time');
+        }
+
+    }, [ isOnSession, isRunning ])
 
     const handleAddFavorite = ( e ) => {
         e.preventDefault();
@@ -86,7 +105,7 @@ export const PomodoroCountdown = () => {
                     >
     
                         <label
-                            className="pomodoro__form-label"
+                            className={ !isRunning ? "pomodoro__form-label" : "pomodoro__form-label pomodoro__form-label--active" }
                         >
                             <input
                                 className="pomodoro__form-input"
@@ -97,7 +116,9 @@ export const PomodoroCountdown = () => {
                                 minLength={2}
                                 max={60}
                                 min={10}
-                                value={ isRunning ? minutesTimeState : minutesActive }
+                                value={ isRunning 
+                                    ? minutesTimeState < 10 ? "0" + minutesTimeState : minutesTimeState
+                                    : minutesActive < 10 ? "0" + minutesActive : minutesActive }
                                 onChange={ handleInputChange }
                             />
                             <div>
@@ -117,7 +138,9 @@ export const PomodoroCountdown = () => {
                                 minLength={2}
                                 max={60}
                                 min={5}
-                                value={ isRunning ? secondsTime : breakPomodoro }
+                                value={ isRunning 
+                                    ? secondsTime < 10 ? "0" + secondsTime : secondsTime
+                                    : breakPomodoro < 10 ? "0" + breakPomodoro : breakPomodoro }
                                 onChange={ handleInputChange }
                             />
                             <div>
@@ -139,7 +162,7 @@ export const PomodoroCountdown = () => {
                                         minLength={2}
                                         max={10}
                                         min={1}
-                                        value={ rounds }
+                                        value={ rounds < 10 ? "0" + rounds : rounds }
                                         onChange={ handleInputChange }
                                     />
                                     <div>

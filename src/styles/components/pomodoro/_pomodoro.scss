@@ -15,9 +15,20 @@
 
     .pomodoro__form-label {
         text-align: center;
+        position: relative;
+
+        &.pomodoro__form-label--active {
+            &:before {
+                content: ":";
+                position: absolute;
+                right: -43px;
+                font-size: 6rem;
+                top: 20px;
+            }
+        }
 
         & + .pomodoro__form-label {
-            margin-left: 2.5rem;
+            margin-left: 3.5rem;
         }
 
     }
@@ -26,10 +37,12 @@
         background: transparent;
         color: $white;
         font-weight: 300;
-        font-size: 7.5rem;
+        font-size: 9rem;
         border: none;
-        max-width: 145px;
+        max-width: 170px;
+        line-height: 1;
         text-align: center;
+        font-family: $global-courier-font;
 
         &:before,
         &:after {

@@ -1,0 +1,21 @@
+.congrats__congrats-content {
+    max-width: 700px;
+    text-align: center;
+
+    .temp-cta-button {
+        max-width: 300px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    h1 {
+        font-size: $size-x3;
+        font-weight: 400;
+        margin-bottom: 10px;
+    }
+
+    p {
+        font-size: 1.5rem;
+    }
+
+}

@@ -22,7 +22,7 @@ export const useCountdown = ({ minutesTime, breakTime, roundsGoal }) => {
     useEffect( () => {
 
         if ( isRunning ) {
-            
+
             countdown.current = setInterval(() => {
                 setSecondsTime( secondsTime => secondsTime - 1 );
             }, 1000);
@@ -90,7 +90,8 @@ export const useCountdown = ({ minutesTime, breakTime, roundsGoal }) => {
         roundsDone, 
         handlePlayCountdown, 
         updateCountdown, 
-        isRunning, 
+        isRunning,
+        setIsRunning, 
         isOnSession
     ];
 

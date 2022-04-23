@@ -12,6 +12,17 @@ html {
 
 body {
     background: $global-color;
+
+    &.temp-session-time {
+        background: $global-session-color;
+        transition: all 3s ease;
+    }
+
+    &.temp-break-time {
+        background: $global-break-color;
+        transition: all 3s ease;
+    }
+
 }
 
 /* Scrollbar */
