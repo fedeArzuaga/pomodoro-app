@@ -1,0 +1,66 @@
+.pomodoro__screen {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    & > h1 {
+        margin-bottom: 40px;
+    }
+
+}
+
+.pomodoro__form {
+
+    .pomodoro__form-label {
+        text-align: center;
+
+        & + .pomodoro__form-label {
+            margin-left: 2.5rem;
+        }
+
+    }
+
+    .pomodoro__form-input {
+        background: transparent;
+        color: $white;
+        font-weight: 300;
+        font-size: 7.5rem;
+        border: none;
+        max-width: 145px;
+        text-align: center;
+
+        &:before,
+        &:after {
+            content: none;
+        }
+
+    }
+
+}
+
+.pomodoro__button {
+    width: 75px;
+    height: 75px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    border-radius: 50%;
+    border: 2px solid $white;
+    background: transparent;
+    color: $white;
+    cursor: pointer;
+    transition: all .3s ease;
+
+    &:hover {
+        background: $white;
+        color: $global-text-color;
+    }
+
+    & + .pomodoro__button {
+        margin-left: 2.5rem;
+    }
+
+}

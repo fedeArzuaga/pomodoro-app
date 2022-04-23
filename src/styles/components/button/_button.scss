@@ -1,0 +1,9 @@
+/* Images */
+.temp-icons {
+    max-width: 30px;
+}
+
+/* CTA Buttons */
+.temp-cta-button {
+    @include ctaButton;
+}

@@ -1,0 +1,297 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Rubik', sans-serif;
+}
+
+html {
+    line-height: 1.4;
+    color: $white;
+}
+
+body {
+    background: $global-color;
+}
+
+/* Scrollbar */
+html::-webkit-scrollbar {
+    width: 4vw;
+}
+
+html::-webkit-scrollbar-thumb {
+    background-color: red;
+}
+
+html::-webkit-scrollbar-track {
+    background-color: green;
+}
+.pointer {
+    cursor: pointer;
+}
+
+/* Witdhs */
+
+.temp-w-100 {
+    width: 100%;
+}
+
+.temp-w-50 {
+    width: 50%;
+}
+
+.temp-w-25 {
+    width: 25%;
+}
+
+/* Heights */
+.temp-vh-100 {
+    height: 100vh;
+}
+
+/* Margins */
+.temp-mt-1 {
+    margin-top: 0.625rem;
+}
+
+.temp-mt-2 {
+    margin-top: 1.25rem;
+}
+
+.temp-mt-4 {
+    margin-top: 2.5rem;
+}
+
+.temp-mb-1 {
+    margin-bottom: 0.625rem;
+}
+
+.temp-mb-2 {
+    margin-bottom: 1.25rem;
+}
+
+.temp-mb-4 {
+    margin-bottom: 2.5rem;
+}
+
+.temp-ml-1 {
+    margin-left: 0.625rem;
+}
+
+.temp-ml-2 {
+    margin-left: 1.25rem;
+}
+
+.temp-ml-4 {
+    margin-left: 2.5rem;
+}
+
+.temp-mr-1 {
+    margin-right: 0.625rem;
+}
+
+.temp-mr-2 {
+    margin-right: 1.25rem;
+}
+
+.temp-mr-4 {
+    margin-right: 2.5rem;
+}
+
+/* Paddings */
+.temp-pt-1 {
+    padding-top: 0.625rem;
+}
+
+.temp-pt-2 {
+    padding-top: 1.25rem;
+}
+
+.temp-pt-4 {
+    padding-top: 2.5rem;
+}
+
+.temp-pb-1 {
+    padding-bottom: 0.625rem;
+}
+
+.temp-pb-2 {
+    padding-bottom: 1.25rem;
+}
+
+.temp-pb-4 {
+    padding-bottom: 2.5rem;
+}
+
+.temp-pl-1 {
+    padding-left: 0.625rem;
+}
+
+.temp-pl-2 {
+    padding-left: 1.25rem;
+}
+
+.temp-pl-4 {
+    padding-left: 2.5rem;
+}
+
+.temp-pr-1 {
+    padding-right: 0.625rem;
+}
+
+.temp-pr-2 {
+    padding-right: 1.25rem;
+}
+
+.temp-pr-4 {
+    padding-right: 2.5rem;
+}
+
+/* Text align */
+.temp-text-left {
+    text-align: left;
+}
+
+.temp-text-right {
+    text-align: right;
+}
+
+.temp-text-center {
+    text-align: center;
+}
+
+h1 {
+    font-size: $size-x2;
+    margin-bottom: 1.25rem;
+}
+
+/* Font-weight */
+.temp-fw-300 {
+    font-weight: 300;
+}
+
+.temp-fw-400 {
+    font-weight: 400;
+}
+
+.temp-fw-500 {
+    font-weight: 500;
+}
+
+.temp-fw-600 {
+    font-weight: 600;
+}
+
+.temp-fw-700 {
+    font-weight: 700;
+}
+
+/* Font-size */
+.temp-fs-x15 {
+    font-size: $size-x15;
+}
+
+.temp-fs-x2 {
+    font-size: $size-x2;
+}
+
+.temp-fs-x3 {
+    font-size: $size-x3;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+/* Container */
+.temp-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.25rem;
+}
+
+.temp-container-expand {
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 1.25rem;
+}
+
+/* Flex */
+.temp-d-flex {
+    display: flex;
+}
+
+.temp-df-rows {
+    flex-direction: row;
+}
+
+.temp-df-columns {
+    flex-direction: column;
+}
+
+.temp-df-rows-reverse {
+    flex-direction: row-reverse;
+}
+
+.temp-df-columns-reverse {
+    flex-direction: column-reverse;
+}
+
+.temp-df-space-between {
+    justify-content: space-between;
+}
+
+.temp-df-space-around {
+    justify-content: space-around;
+}
+
+.temp-df-center {
+    justify-content: center;
+}
+
+.temp-df-middle {
+    align-items: center;
+}
+
+.temp-df-top {
+    align-items: flex-start;
+}
+
+.temp-df-bottom {
+    align-items: flex-end;
+}
+
+/* Divider */
+.temp-divider {
+    position: relative;
+
+    & > span {
+        display: inline-block;
+        padding: 0 20px;
+        background: $global-color;
+        position: relative;
+        z-index: 500;
+    }
+
+    &:before {
+        content: "";
+        display: block;
+        height: 3px;
+        width: 100%;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        background: $white;
+    }
+
+}

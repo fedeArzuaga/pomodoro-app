@@ -1,0 +1,36 @@
+.form {
+    width: 100%;
+    max-width: 400px;
+    border: 3px solid $white;
+    border-radius: 10px;
+    padding: $size-x15;
+    margin: 0 auto;
+}
+
+.form__label {
+    display: block;
+
+    & > div {
+        color: $white;
+        margin-bottom: 5px;
+    }
+
+}
+
+.form__input {
+    width: 100%;
+    line-height: 40px;
+    background: transparent;
+    border: none;
+    border: 3px solid $white;
+    border-radius: 10px;
+    font-size: 1rem;
+    padding-left: 10px;
+    padding-right: 10px;
+    color: $white;
+    outline: none;
+}
+
+.form__input--button {
+    @include ctaButton;
+}

@@ -1,0 +1,25 @@
+.navbar {
+    width: 100%;
+    padding: 20px;
+}
+
+.navbar__list {
+    list-style: none;
+    padding-left: 0;
+    text-align: right;
+}
+
+.navbar__list-item {
+    display: inline-block;
+    
+    & > div {
+        display: flex;
+        align-items: center;
+    }
+
+    img {
+        width: 40px;
+        margin-left: 1.25rem;
+    }
+
+}

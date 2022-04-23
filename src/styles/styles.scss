@@ -1,0 +1,21 @@
+// Basics
+@import "basics/variables";
+@import "basics/basics";
+@import "basics/mixins";
+
+// Components
+@import "components/auth/form"; 
+@import "components/auth/auth";
+
+@import "components/button/button";
+
+@import "components/link/link";
+@import "components/loader/loader";
+
+@import "components/home/home";
+
+@import "components/sidebar/sidebar";
+
+@import "components/navbar/navbar";
+
+@import "components/pomodoro/pomodoro";

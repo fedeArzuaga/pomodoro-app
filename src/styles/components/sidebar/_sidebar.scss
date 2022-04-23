@@ -1,0 +1,93 @@
+.sidebar {
+    background: rgba(0,0,0,0.2);
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+    padding-right: 0;
+    height: 100%;
+}
+
+.sidebar__container {
+    overflow-y: auto;
+    height: 100%;
+    padding-right: 20px;
+}
+
+.sidebar__pomodoro-card {
+    border: 3px solid $white;
+    border-radius: 10px;
+    padding-left: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background: rgba(0,0,0,0.0);
+    cursor: pointer;
+    transition: all .3s ease;
+
+    &:hover {
+        background: rgba(0,0,0,0.3);
+    }
+
+    & + .sidebar__pomodoro-card {
+        margin-top: 1.25rem;
+    }
+
+}
+
+.sidebar__time-card {
+
+    & > * + * {
+        margin-left: 1.875rem;
+    }
+
+    .sidebar__time-content {
+        text-align: center;
+
+        & > div {
+            font-size: 3rem;
+            font-weight: 300;
+            line-height: 1;
+        }
+
+    }
+
+    .sidebar__trash-icon {
+        flex: 1;
+        margin: auto;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .sidebar__trash {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 2px solid $white;
+            transition: all .3s ease;
+
+            &:hover {
+                background: $white;
+                color: $global-text-color;
+            }
+
+        }
+
+    }
+
+}
+
+.sidebar__empty-content {
+    height: 100%;
+
+    img {
+        max-width: 60px;
+    }
+
+    p {
+        max-width: 280px;
+    }
+
+}
