@@ -9,6 +9,7 @@ export const types = {
     pomodoroAddNew: "[Pomodoro] Add new",
     pomodoroGetCurrentData: "[Pomodoro] Get current data",
     pomodoroSetActive: "[Pomodoro] Set default active",
-    pomodoroDelete: "[Pomodoro] Delete"
+    pomodoroDelete: "[Pomodoro] Delete",
+    pomodoroSetIsRunning: "[Pomodoro] Set is running"
 
 }

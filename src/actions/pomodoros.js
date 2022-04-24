@@ -112,3 +112,8 @@ export const addNewPomodoro = ( id, pomodoro ) => ({
         ...pomodoro
     }
 })
+
+export const setIsRunningAction = ( bool ) => ({
+    type: types.pomodoroSetActive,
+    payload: bool
+})

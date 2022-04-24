@@ -23,6 +23,7 @@ export const PomodoroCountdown = () => {
     })
 
     const [
+        isOnPause,
         minutesTimeState,
         secondsTime,
         breakTime,
@@ -32,7 +33,9 @@ export const PomodoroCountdown = () => {
         updateCountdown,
         isRunning,
         setIsRunning,
-        isOnSession
+        isOnSession,
+        handlePauseCountdown,
+        handleStopCountdown
     ] = useCountdown({
         minutesTime: active.minutes,
         breakTime: active.breakTime,
@@ -115,7 +118,7 @@ export const PomodoroCountdown = () => {
                                 maxLength={2}
                                 minLength={2}
                                 max={60}
-                                min={10}
+                                min={1}
                                 value={ isRunning 
                                     ? minutesTimeState < 10 ? "0" + minutesTimeState : minutesTimeState
                                     : minutesActive < 10 ? "0" + minutesActive : minutesActive }
@@ -137,7 +140,7 @@ export const PomodoroCountdown = () => {
                                 maxLength={2}
                                 minLength={2}
                                 max={60}
-                                min={5}
+                                min={1}
                                 value={ isRunning 
                                     ? secondsTime < 10 ? "0" + secondsTime : secondsTime
                                     : breakPomodoro < 10 ? "0" + breakPomodoro : breakPomodoro }
@@ -179,20 +182,44 @@ export const PomodoroCountdown = () => {
                 <div
                     className="temp-d-flex temp-df-center temp-df-middle temp-mt-4"
                 >
-    
-                    <button
-                        className="pomodoro__button"
-                        onClick={ handlePlayCountdown }
-                    >
-                        <i className="fa-solid fa-play"></i>
-                    </button>
-    
-                    <button
-                        className="pomodoro__button"
-                        onClick={ handleAddFavorite }
-                    >
-                        <i className="fa-solid fa-star"></i>
-                    </button>
+                    
+                    {
+                        isOnPause
+                            ? (
+                                <>
+                                    <button
+                                        className="pomodoro__button"
+                                        onClick={ handlePlayCountdown }
+                                    >
+                                        <i className="fa-solid fa-play"></i>
+                                    </button>
+                    
+                                    <button
+                                        className="pomodoro__button"
+                                        onClick={ handleAddFavorite }
+                                    >
+                                        <i className="fa-solid fa-star"></i>
+                                    </button>
+                                </>
+                            )
+                            : (
+                                <>
+                                    <button
+                                        className="pomodoro__button"
+                                        onClick={ handlePauseCountdown }
+                                    >
+                                        <i className="fa-solid fa-pause"></i>
+                                    </button>
+                    
+                                    <button
+                                        className="pomodoro__button"
+                                        onClick={ handleStopCountdown }
+                                    >
+                                        <i className="fa-solid fa-stop"></i>
+                                    </button>
+                                </>
+                            )
+                    }
     
                 </div>
     

@@ -23,7 +23,7 @@
                 position: absolute;
                 right: -43px;
                 font-size: 6rem;
-                top: 20px;
+                top: 0px;
             }
         }
 
@@ -40,6 +40,7 @@
         font-size: 9rem;
         border: none;
         max-width: 170px;
+        height: 150px;
         line-height: 1;
         text-align: center;
         font-family: $global-courier-font;

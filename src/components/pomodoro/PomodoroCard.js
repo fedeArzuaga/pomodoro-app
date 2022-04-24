@@ -41,7 +41,7 @@ export const PomodoroCard = ({ id, minutes, breakTime, rounds }) => {
                     className="sidebar__time-content"
                 >
                     <div>
-                        { minutes }
+                        { parseInt(minutes) < 10 && minutes.length < 2 ? `0${minutes}` : minutes }
                     </div>
                     <span>
                         Minutes
@@ -52,7 +52,7 @@ export const PomodoroCard = ({ id, minutes, breakTime, rounds }) => {
                     className="sidebar__time-content"
                 >
                     <div>
-                        { breakTime }
+                        { parseInt(breakTime) < 10 && breakTime.length < 2 ? `0${breakTime}` : breakTime }
                     </div>
                     <span>
                         Break
@@ -63,7 +63,7 @@ export const PomodoroCard = ({ id, minutes, breakTime, rounds }) => {
                     className="sidebar__time-content"
                 >
                     <div>
-                        { rounds }
+                        { parseInt(rounds) < 10 && rounds.length < 2 ? `0${rounds}` : rounds }
                     </div>
                     <span>
                         Round

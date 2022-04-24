@@ -74,6 +74,15 @@ export const pomodoroReducer = ( state = initialState, action ) => {
                 pomodoros: state.pomodoros.filter( element => element.id !== action.payload ),
                 ...state
             }
+
+        case types.pomodoroSetIsRunning:
+            return {
+                ...state,
+                active: {
+                    ...state.active,
+                    isRunning: action.payload
+                }
+            }
         
         default:
             return state;

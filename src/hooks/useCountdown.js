@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from "react";
-import { Navigate } from "react-router";
 
 
 export const useCountdown = ({ minutesTime, breakTime, roundsGoal }) => {
@@ -10,19 +9,15 @@ export const useCountdown = ({ minutesTime, breakTime, roundsGoal }) => {
     const [isOnSession, setIsOnSession] = useState( true );
     const [isRunning, setIsRunning] = useState( false );
     const [secondsTime, setSecondsTime] = useState(0);
-    const [roundsDone, setRoundsDone] = useState(1)
+    const [roundsDone, setRoundsDone] = useState(1);
+    const [isOnPause, setIsOnPause] = useState( true );
 
     const countdown = useRef(null);
 
-    const handlePlayCountdown = () => {
-        setIsRunning( true );
-        // setMinutesTimeState( minutesTimeState => minutesTimeState - 1 );
-    } 
-
     useEffect( () => {
 
-        if ( isRunning ) {
-
+        if ( isRunning && !countdown.current ) {
+            
             countdown.current = setInterval(() => {
                 setSecondsTime( secondsTime => secondsTime - 1 );
             }, 1000);
@@ -82,7 +77,39 @@ export const useCountdown = ({ minutesTime, breakTime, roundsGoal }) => {
         setRoundsGoalState( parseInt( roundsGoal ) )
     }
 
+    const runCountdown = () => {
+        countdown.current = setInterval(() => {
+            setSecondsTime( secondsTime => secondsTime - 1 );
+        }, 1000);
+    }
+
+    const handlePlayCountdown = () => {
+        setIsRunning( true );
+        setIsOnPause( false );
+
+        if ( countdown.current ) {
+            runCountdown();
+        }
+
+    } 
+
+    const handlePauseCountdown = () => {
+        setIsOnPause( true )
+        clearInterval( countdown.current );
+    }
+
+    const handleStopCountdown = () => {
+        clearInterval( countdown.current );
+        updateCountdown( minutesTime, breakTime, roundsGoal );
+        setSecondsTime( 0 );
+        setRoundsDone( 1 );
+        setIsOnSession( true );
+        setIsRunning( false );
+        setIsOnPause( true );
+    }
+
     return [ 
+        isOnPause,
         minutesTimeState,
         secondsTime,
         breakTime, 
@@ -92,7 +119,9 @@ export const useCountdown = ({ minutesTime, breakTime, roundsGoal }) => {
         updateCountdown, 
         isRunning,
         setIsRunning, 
-        isOnSession
+        isOnSession,
+        handlePauseCountdown,
+        handleStopCountdown
     ];
 
 }
