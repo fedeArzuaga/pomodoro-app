@@ -10,6 +10,6 @@ export const types = {
     pomodoroGetCurrentData: "[Pomodoro] Get current data",
     pomodoroSetActive: "[Pomodoro] Set default active",
     pomodoroDelete: "[Pomodoro] Delete",
-    pomodoroSetIsRunning: "[Pomodoro] Set is running"
+    pomodoroToggleActiveIsRunning: "[Pomodoro] Toggle active is running"
 
 }

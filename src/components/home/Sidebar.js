@@ -10,11 +10,10 @@ export const Sidebar = () => {
 
     const { pomodoros } = myPomodoros;
 
-    const exampleArr = [];
-
     return (
         <div
             className="sidebar temp-d-flex temp-df-columns"
+            id="sidebar"
         >
 
             <h1>My pomodoros</h1>
@@ -23,23 +22,29 @@ export const Sidebar = () => {
                 className="sidebar__container"
             >
                 {
-                    pomodoros.length > 0 
-                        ? (
-                            pomodoros.map( element => {
-                                return (
-                                    <PomodoroCard
-                                        key={ element.id }
-                                        id={ element.id }
-                                        minutes={ element.minutes }
-                                        breakTime={ element.break }
-                                        rounds={ element.rounds }
-                                    />
-                                )
-                            })
-                        )
-                        : (
-                            <EmptySidebar />
-                        )
+                    ( pomodoros ) 
+                        ?
+                        pomodoros.length > 0 
+                            ? (
+                                pomodoros.map( element => {
+                                    return (
+                                        <PomodoroCard
+                                            key={ element.id }
+                                            id={ element.id }
+                                            minutes={ element.minutes }
+                                            breakTime={ element.break }
+                                            rounds={ element.rounds }
+                                        />
+                                    )
+                                })
+                            )
+                            : (
+                                <EmptySidebar />
+                            )
+                        :
+                        <div className="temp-d-flex temp-df-columns temp-df-center temp-df-middle temp-ph-100">
+                            <div className="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+                        </div>
                 }
             </div>
 

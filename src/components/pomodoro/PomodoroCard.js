@@ -1,10 +1,12 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux';
+import Swal from 'sweetalert2';
 import { setActive, startDeletingPomodoro } from '../../actions/pomodoros';
 
 export const PomodoroCard = ({ id, minutes, breakTime, rounds }) => {
 
-    const { auth } = useSelector( state => state );
+    const { auth, myPomodoros } = useSelector( state => state );
+    const { active } = myPomodoros;
 
     const dispatch = useDispatch();
 
@@ -16,9 +18,19 @@ export const PomodoroCard = ({ id, minutes, breakTime, rounds }) => {
     }
 
     const handleSetActive = () => {
-        dispatch(
-            setActive( pomodoro )
-        );
+
+        if ( !active.isRunning ) {
+            dispatch(
+                setActive( pomodoro )
+            );
+        } else {
+            Swal.fire({
+                icon: 'error',
+                title: 'You already have a session running',
+                text: 'Try to stop your current session and then choose another pomodoro.'
+            })
+        }
+
     }
 
     const handleDeletePomodoro = () => {

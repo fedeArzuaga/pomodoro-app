@@ -1,5 +1,7 @@
 import { useEffect, useRef, useState } from "react";
+import { useDispatch } from "react-redux";
 
+const sidebar = document.querySelector("#sidebar");
 
 export const useCountdown = ({ minutesTime, breakTime, roundsGoal }) => {
 
@@ -12,6 +14,7 @@ export const useCountdown = ({ minutesTime, breakTime, roundsGoal }) => {
     const [roundsDone, setRoundsDone] = useState(1);
     const [isOnPause, setIsOnPause] = useState( true );
 
+    const dispatch = useDispatch();
     const countdown = useRef(null);
 
     useEffect( () => {
@@ -54,6 +57,7 @@ export const useCountdown = ({ minutesTime, breakTime, roundsGoal }) => {
         if ( isOnSession && roundsDone > 1 ) {
             setMinutesTimeState( parseInt( minutesTime ) );
             setSecondsTime( 0 )
+            playClock();
 
             countdown.current = setInterval(() => {
                 setSecondsTime( secondsTime => secondsTime - 1 );
@@ -62,6 +66,7 @@ export const useCountdown = ({ minutesTime, breakTime, roundsGoal }) => {
         } else if ( !isOnSession && roundsDone > 1 ) {
             setMinutesTimeState( parseInt( breakTime ) );
             setSecondsTime( 0 )
+            playClock();
 
             countdown.current = setInterval(() => {
                 setSecondsTime( secondsTime => secondsTime - 1 );
@@ -94,8 +99,9 @@ export const useCountdown = ({ minutesTime, breakTime, roundsGoal }) => {
     } 
 
     const handlePauseCountdown = () => {
-        setIsOnPause( true )
         clearInterval( countdown.current );
+        setIsOnPause( true )
+        updateCountdown( minutesTimeState, breakTime, roundsGoal );
     }
 
     const handleStopCountdown = () => {
@@ -106,6 +112,11 @@ export const useCountdown = ({ minutesTime, breakTime, roundsGoal }) => {
         setIsOnSession( true );
         setIsRunning( false );
         setIsOnPause( true );
+    }
+
+    const playClock = () => {
+        const clock = new Audio("https://res.cloudinary.com/dubgtdvlk/video/upload/v1650910211/clock_tdukin.mp3");
+        clock.play();
     }
 
     return [ 

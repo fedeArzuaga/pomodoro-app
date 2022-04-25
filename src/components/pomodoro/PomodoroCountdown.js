@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { Navigate } from 'react-router';
-import { setActive, startAddingPomodoro } from '../../actions/pomodoros';
+import { setToggleActiveIsRunning, startAddingPomodoro } from '../../actions/pomodoros';
 import { useCountdown } from '../../hooks/useCountdown';
 import { useForm } from '../../hooks/useForm';
 
@@ -54,7 +54,7 @@ export const PomodoroCountdown = () => {
 
         updateCountdown( active.minutes, active.breakTime, active.rounds )
         
-    }, [ active ])
+    }, [ active.minutes, active.breakTime, active.rounds ])
 
     useEffect( () => {
 
@@ -189,7 +189,12 @@ export const PomodoroCountdown = () => {
                                 <>
                                     <button
                                         className="pomodoro__button"
-                                        onClick={ handlePlayCountdown }
+                                        onClick={ () => {
+                                            handlePlayCountdown();
+                                            dispatch(
+                                                setToggleActiveIsRunning( true )
+                                            )
+                                        }}
                                     >
                                         <i className="fa-solid fa-play"></i>
                                     </button>
@@ -206,14 +211,24 @@ export const PomodoroCountdown = () => {
                                 <>
                                     <button
                                         className="pomodoro__button"
-                                        onClick={ handlePauseCountdown }
+                                        onClick={ () => {
+                                            handlePauseCountdown();
+                                            dispatch(
+                                                setToggleActiveIsRunning( false )
+                                            )
+                                        }}
                                     >
                                         <i className="fa-solid fa-pause"></i>
                                     </button>
                     
                                     <button
                                         className="pomodoro__button"
-                                        onClick={ handleStopCountdown }
+                                        onClick={ () => {
+                                            handleStopCountdown();
+                                            dispatch(
+                                                setToggleActiveIsRunning( false )
+                                            )
+                                        }}
                                     >
                                         <i className="fa-solid fa-stop"></i>
                                     </button>

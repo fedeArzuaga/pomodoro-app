@@ -17,7 +17,7 @@ export const EmptySidebar = () => {
                 <p
                     className="temp-mt-2 temp-text-center"
                 >
-                    You don't have any pomodoros saved yet. Try adding your first pomodoro clicking on the star symbol
+                    You don't have any pomodoros saved yet. Try adding your first pomodoro clicking on the star icon
                 </p>
             </div>
         </div>

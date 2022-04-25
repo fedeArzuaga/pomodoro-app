@@ -30,7 +30,7 @@
 import { types } from "../types/types";
 
 const initialState = {
-    pomodoros: [],
+    pomodoros: null,
     active: {}
 }
 
@@ -75,7 +75,7 @@ export const pomodoroReducer = ( state = initialState, action ) => {
                 ...state
             }
 
-        case types.pomodoroSetIsRunning:
+        case types.pomodoroToggleActiveIsRunning:
             return {
                 ...state,
                 active: {

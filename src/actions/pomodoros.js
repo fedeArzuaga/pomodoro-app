@@ -53,8 +53,8 @@ export const startDeletingPomodoro = ( uid, id ) => {
                 popup: 'animate__animated animate__zoomOut animate__faster'
             },
             showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
+            confirmButtonColor: '#d33',
+            cancelButtonColor: '#999',
             confirmButtonText: 'Delete'
         }).then( async (result) => {
 
@@ -113,7 +113,7 @@ export const addNewPomodoro = ( id, pomodoro ) => ({
     }
 })
 
-export const setIsRunningAction = ( bool ) => ({
-    type: types.pomodoroSetActive,
+export const setToggleActiveIsRunning = ( bool ) => ({
+    type: types.pomodoroToggleActiveIsRunning,
     payload: bool
 })

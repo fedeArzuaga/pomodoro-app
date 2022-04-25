@@ -5,6 +5,12 @@
     padding: 20px;
     padding-right: 0;
     height: 100%;
+    transition: all 1s ease;
+
+    &.sidebar--hidden {
+        margin-left: -400px;
+    }
+
 }
 
 .sidebar__container {
