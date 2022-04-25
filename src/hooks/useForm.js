@@ -1,6 +1,12 @@
 import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { setActive } from '../actions/pomodoros';
 
 export const useForm = (initialState = {}) => {
+
+    const { myPomodoros: { active } } = useSelector( state => state );
+
+    const dispatch = useDispatch();
   
     const [values, setValues] = useState( initialState );
 
@@ -13,6 +19,12 @@ export const useForm = (initialState = {}) => {
             ...values,
             [target.name]: target.value
         })
+        dispatch(
+            setActive({
+                ...active,
+                [target.name]: target.value
+            })
+        )
     }
 
     return [values, setValues, handleInputChange, reset];

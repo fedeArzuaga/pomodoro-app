@@ -36,12 +36,10 @@ export const Navbar = () => {
                         className="pointer"
                         onClick={ handleLogout }
                     >
-                        Log out
-                        
-                        <img
-                            src={ getImages("./icons/logout.png") }
-                        />
-
+                        <span>
+                            Log out
+                        </span>
+                        <i className="fa-solid fa-arrow-right-from-bracket"></i>
                     </div>
                 </li>
             </ul>

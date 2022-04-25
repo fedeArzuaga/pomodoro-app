@@ -9,7 +9,6 @@ export const startAddingPomodoro = ( pomodoro ) => {
         const { auth } = getState();
 
         const docRef = await addDoc( collection( db, `${auth.uid}/user/my-pomodoros` ), pomodoro)
-        console.log( "Saved", docRef.id );
 
         dispatch(
             addNewPomodoro( docRef.id, pomodoro )

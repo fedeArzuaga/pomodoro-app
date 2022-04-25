@@ -135,8 +135,8 @@ export const PomodoroCountdown = () => {
                             <input
                                 className="pomodoro__form-input"
                                 type="number"
-                                id="break"
-                                name="break"
+                                id="breakTime"
+                                name="breakTime"
                                 maxLength={2}
                                 minLength={2}
                                 max={60}
