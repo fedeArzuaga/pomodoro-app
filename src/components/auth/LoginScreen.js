@@ -33,106 +33,110 @@ export const LoginScreen = () => {
     }
 
     return (
-        <main className="auth auth__login-screen temp-d-flex temp-df-middle temp-df-center">
+        <div className="temp-container">
+
+            <main className="auth auth__login-screen temp-d-flex temp-df-middle temp-df-center">
             
-            <form
-                className="form"
-                onSubmit={ handleSubmit }
-            >
-
-                <h1 className="temp-text-center">
-                    Login
-                </h1>
-
-                <label
-                    className="form__label"
+                <form
+                    className="form"
+                    onSubmit={ handleSubmit }
                 >
-                    <div>
-                        Email
+
+                    <h1 className="temp-text-center">
+                        Login
+                    </h1>
+
+                    <label
+                        className="form__label"
+                    >
+                        <div>
+                            Email
+                        </div>
+                        <input
+                            type="email"
+                            name="email"
+                            id="email"
+                            className="form__input"
+                            autoComplete="off"
+                            value={ email }
+                            onChange={ handleInputChange }
+                        />
+                    </label>
+
+                    <label
+                        className="form__label temp-mt-2"
+                    >
+                        <div>
+                            Password
+                        </div>
+                        <input
+                            type="password"
+                            name="password"
+                            id="password"
+                            className="form__input"
+                            autoComplete="off"
+                            value={ password }
+                            onChange={ handleInputChange }
+                        />
+                    </label>
+
+                    <label
+                        className="form__label temp-mt-2"
+                    >
+                        <input
+                            type="submit"
+                            className="form__input form__input--button"
+                            value="Log In"
+                        />
+                    </label>
+
+                    <Link 
+                        to="/auth/register"
+                        className="temp-link temp-mt-2"
+                    >
+                        Not registered yet? Create an account
+                    </Link>
+
+                    <div
+                        className="temp-divider temp-fs-x15 temp-mt-2 temp-text-center"
+                    >
+                        <span>
+                            Or
+                        </span>
                     </div>
-                    <input
-                        type="email"
-                        name="email"
-                        id="email"
-                        className="form__input"
-                        autoComplete="off"
-                        value={ email }
-                        onChange={ handleInputChange }
-                    />
-                </label>
 
-                <label
-                    className="form__label temp-mt-2"
-                >
-                    <div>
-                        Password
-                    </div>
-                    <input
-                        type="password"
-                        name="password"
-                        id="password"
-                        className="form__input"
-                        autoComplete="off"
-                        value={ password }
-                        onChange={ handleInputChange }
-                    />
-                </label>
+                    <h2
+                        className="temp-mt-2 temp-text-center"
+                    >
+                        Sign in with Social Media
+                    </h2>
 
-                <label
-                    className="form__label temp-mt-2"
-                >
-                    <input
-                        type="submit"
-                        className="form__input form__input--button"
-                        value="Log In"
-                    />
-                </label>
+                    <button
+                        className="temp-cta-button temp-mt-2"
+                        onClick={ handleGoogleLogin }
+                    >
+                        <img
+                            src={ getImages(`./icons/google.png`) }
+                            className="temp-icons"
+                        />
+                        Google
+                    </button>
 
-                <Link 
-                    to="/auth/register"
-                    className="temp-link temp-mt-2"
-                >
-                    Not registered yet? Create an account
-                </Link>
+                    {/* <button
+                        className="temp-cta-button temp-mt-2"
+                    >
+                        <img
+                            src={ getImages(`./icons/github.png`) }
+                            className="temp-icons"
+                        />
+                        Github
+                    </button> */}
 
-                <div
-                    className="temp-divider temp-fs-x15 temp-mt-2 temp-text-center"
-                >
-                    <span>
-                        Or
-                    </span>
-                </div>
+                </form>
 
-                <h2
-                    className="temp-mt-2 temp-text-center"
-                >
-                    Sign in with Social Media
-                </h2>
+            </main>
 
-                <button
-                    className="temp-cta-button temp-mt-2"
-                    onClick={ handleGoogleLogin }
-                >
-                    <img
-                        src={ getImages(`./icons/google.png`) }
-                        className="temp-icons"
-                    />
-                    Google
-                </button>
-
-                {/* <button
-                    className="temp-cta-button temp-mt-2"
-                >
-                    <img
-                        src={ getImages(`./icons/github.png`) }
-                        className="temp-icons"
-                    />
-                    Github
-                </button> */}
-
-            </form>
-
-        </main>
+        </div>
     )
 }
 

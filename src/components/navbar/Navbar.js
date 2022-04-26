@@ -10,6 +10,8 @@ export const Navbar = () => {
     const dispatch = useDispatch();
 
     const handleLogout = () => {
+        document.body.classList.remove('temp-session-time')
+        document.body.classList.remove('temp-session-break')
         dispatch(
             startLogout()
         )

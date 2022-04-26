@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Navigate } from 'react-router';
 import { setToggleActiveIsRunning, startAddingPomodoro } from '../../actions/pomodoros';
 import { useCountdown } from '../../hooks/useCountdown';
-import { useForm } from '../../hooks/useForm';
+import { useFormCountdown } from '../../hooks/useFormCountdown';
 
 const body = document.body;
 
@@ -16,7 +16,7 @@ export const PomodoroCountdown = () => {
 
     const { active } = myPomodoros;
 
-    const [ values, setValues, handleInputChange] = useForm({
+    const [ values, setValues, handleInputChange] = useFormCountdown({
         minutes: active.minutes,
         break: active.breakTime,
         rounds: active.rounds

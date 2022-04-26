@@ -1,9 +1,13 @@
 .pomodoro__screen {
-    height: 100%;
+    height: calc(100% - 135px);
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+
+    @media screen and (min-width: $bp-medium) {
+        height: 100%;
+    }
 
     & > h1 {
         margin-bottom: 40px;
@@ -13,22 +17,42 @@
 
 .pomodoro__form {
 
+    & > div {
+        // flex-direction: column;
+    }
+
     .pomodoro__form-label {
         text-align: center;
         position: relative;
 
         &.pomodoro__form-label--active {
+
             &:before {
                 content: ":";
                 position: absolute;
-                right: -43px;
-                font-size: 6rem;
-                top: 0px;
+                right: -7px;
+                font-size: 3rem;
+                top: -5px;
+            }
+
+            @media screen and (min-width: $bp-medium) {
+                &:before {
+                    content: ":";
+                    position: absolute;
+                    right: -43px;
+                    font-size: 6rem;
+                    top: 0px;
+                }
             }
         }
 
         & + .pomodoro__form-label {
-            margin-left: 3.5rem;
+            margin-left: 0.2rem;
+
+            @media screen and (min-width: $bp-medium) {
+                margin-left: 3.5rem;
+            }
+
         }
 
     }
@@ -37,13 +61,18 @@
         background: transparent;
         color: $white;
         font-weight: 300;
-        font-size: 9rem;
+        font-size: 3.5rem;
         border: none;
-        max-width: 185px;
-        height: 150px;
+        max-width: 110px;
         line-height: 1;
         text-align: center;
         font-family: $global-courier-font;
+
+        @media screen and (min-width: $bp-medium) {
+            font-size: 9rem;
+            height: 150px;
+            max-width: 185px;
+        }
 
         &:before,
         &:after {
@@ -55,18 +84,24 @@
 }
 
 .pomodoro__button {
-    width: 75px;
-    height: 75px;
+    width: 50px;
+    height: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 2rem;
+    font-size: 1.2rem;
     border-radius: 50%;
     border: 2px solid $white;
     background: transparent;
     color: $white;
     cursor: pointer;
     transition: all .3s ease;
+
+    @media screen and (min-width: $bp-medium) {
+        width: 75px;
+        height: 75px;
+        font-size: 2rem;
+    }
 
     &:hover {
         background: $white;

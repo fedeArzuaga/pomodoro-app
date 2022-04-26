@@ -1,12 +1,12 @@
 @mixin ctaButton() {
     background: $white;
     color: $global-text-color;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     font-weight: 500;
     cursor: pointer;
     transition: all .3s ease;
     border: none;
-    line-height: 40px;
+    line-height: 30px;
     border: 3px solid $white;
     border-radius: 10px;
     width: 100%;
@@ -17,6 +17,17 @@
 
     & > .temp-icons {
         margin-right: 10px;
+        max-height: 20px;
+
+        &:hover {
+            max-height: none;
+        }    
+
+    }
+
+    @media screen and (min-width: $bp-medium) {
+        font-size: 1.5rem;
+        line-height: 40px;
     }
 
     &:hover {

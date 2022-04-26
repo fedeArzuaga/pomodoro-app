@@ -1,14 +1,29 @@
 .sidebar {
     background: rgba(0,0,0,0.2);
     width: 100%;
-    max-width: 400px;
+    
     padding: 20px;
     padding-right: 0;
     height: 100%;
     transition: all 1s ease;
+    position: fixed;
+    top: calc(100% - 65px);
 
-    &.sidebar--hidden {
-        margin-left: -400px;
+    @media screen and (min-width: $bp-medium) {
+        max-width: 400px;
+        position: relative;
+        top: 0;
+    }
+
+    h1 {
+        font-weight: 400;
+        font-size: 1.25re4m;
+
+        @media screen and (min-width: $bp-medium) {
+            font-weight: 700;
+            font-size: 2rem;
+        }
+
     }
 
 }

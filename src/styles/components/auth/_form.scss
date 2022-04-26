@@ -10,6 +10,18 @@
 .form__label {
     display: block;
 
+    &.form__label--error {
+
+        & > div {
+            color: $global-error-color;
+        }
+
+        & > input {
+            border-color: $global-error-color;
+        }
+        
+    }
+
     & > div {
         color: $white;
         margin-bottom: 5px;

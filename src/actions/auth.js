@@ -115,7 +115,9 @@ export const startRegistering = ( user ) => {
         .catch((error) => {
             const errorCode = error.code;
             const errorMessage = error.message;
-            console.error( errorCode, errorMessage );
+            
+            console.error( errorCode  );
+            console.error( error.message, errorMessage );
         });
 
     }
