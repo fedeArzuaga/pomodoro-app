@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/static/css/main.dd3d45dc.css",
+    "main.js": "/static/js/main.ccee735d.js",
+    "static/media/google.png": "/static/media/google.e12914ad8afda3f6f2e8.png",
+    "static/media/github.png": "/static/media/github.44eee0c4a6c25b0d7347.png",
+    "static/media/temporizador.png": "/static/media/temporizador.8d542ae836042c3180e0.png",
+    "static/media/temporizador - Copy.png": "/static/media/temporizador - Copy.27f2cdb3cbe464cb5475.png",
+    "static/media/temporizador.svg": "/static/media/temporizador.45e548299d5e702af7c7.svg",
+    "static/media/star-svgrepo-com.svg": "/static/media/star-svgrepo-com.8b84b8d558f6b1e0ccd9.svg",
+    "index.html": "/index.html",
+    "static/media/play-button-svgrepo-com.svg": "/static/media/play-button-svgrepo-com.3ed51aa792995ab8ab1e.svg",
+    "main.dd3d45dc.css.map": "/static/css/main.dd3d45dc.css.map",
+    "main.ccee735d.js.map": "/static/js/main.ccee735d.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.dd3d45dc.css",
+    "static/js/main.ccee735d.js"
+  ]
+}
