@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { useDispatch } from "react-redux";
+import { showNotification } from "../helpers/showNotification";
 
 const sidebar = document.querySelector("#sidebar");
 
@@ -57,6 +58,7 @@ export const useCountdown = ({ minutesTime, breakTime, roundsGoal }) => {
         if ( isOnSession && roundsDone > 1 ) {
             setMinutesTimeState( parseInt( minutesTime ) );
             setSecondsTime( 0 )
+            showNotification("Session time!", "Your session has started now. Time to focus on what you're studying/working")
             playClock();
 
             countdown.current = setInterval(() => {
@@ -66,6 +68,13 @@ export const useCountdown = ({ minutesTime, breakTime, roundsGoal }) => {
         } else if ( !isOnSession && roundsDone > 1 ) {
             setMinutesTimeState( parseInt( breakTime ) );
             setSecondsTime( 0 )
+            
+            if ( roundsDone > roundsGoalState ) {
+                showNotification("Congratulations!", "You have finished your pomodoro session!")
+            } else {
+                showNotification("Break time!", "Time to take a break. Come back when your next session starts")
+            }
+
             playClock();
 
             countdown.current = setInterval(() => {

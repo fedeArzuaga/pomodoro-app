@@ -17,10 +17,6 @@
 
 .pomodoro__form {
 
-    & > div {
-        // flex-direction: column;
-    }
-
     .pomodoro__form-label {
         text-align: center;
         position: relative;
@@ -35,7 +31,7 @@
                 top: -5px;
             }
 
-            @media screen and (min-width: $bp-medium) {
+            @media screen and (min-width: $bp-small) {
                 &:before {
                     content: ":";
                     position: absolute;
@@ -44,13 +40,28 @@
                     top: 0px;
                 }
             }
+
+            @media (min-width: 800px) and (max-width:1150px) {
+                &:before {
+                    content: ":";
+                    position: absolute;
+                    right: -12px;
+                    font-size: 5rem;
+                    top: -8px;
+                }
+            }
+
         }
 
         & + .pomodoro__form-label {
             margin-left: 0.2rem;
 
-            @media screen and (min-width: $bp-medium) {
+            @media screen and (min-width: $bp-small) {
                 margin-left: 3.5rem;
+            }
+
+            @media (min-width: 800px) and (max-width:1150px) {
+                margin-left: 0rem;
             }
 
         }
@@ -68,11 +79,16 @@
         text-align: center;
         font-family: $global-courier-font;
 
-        @media screen and (min-width: $bp-medium) {
+        @media screen and (min-width: $bp-small) {
             font-size: 9rem;
             height: 150px;
             max-width: 185px;
         }
+
+        @media (min-width: 800px) and (max-width:1150px) {
+            font-size: 6rem;
+            height: auto;
+        }​
 
         &:before,
         &:after {
@@ -97,7 +113,7 @@
     cursor: pointer;
     transition: all .3s ease;
 
-    @media screen and (min-width: $bp-medium) {
+    @media screen and (min-width: $bp-small) {
         width: 75px;
         height: 75px;
         font-size: 2rem;

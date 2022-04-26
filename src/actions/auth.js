@@ -63,9 +63,38 @@ export const startLogin = ( email, password ) => {
 
             })
             .catch((error) => {
-                const errorCode = error.code;
-                const errorMessage = error.message;
-                console.error( errorCode, errorMessage );
+                
+                switch ( error.code ) {
+                    case "auth/invalid-email":
+                        Swal.fire({
+                            icon: 'error',
+                            title: "Invalid email",
+                            text: "Please introduce a valid email (ex: email@domain.com)"
+                        })
+                    break;
+                    case "auth/user-not-found":
+                        Swal.fire({
+                            icon: 'error',
+                            title: "We couldn't find that account",
+                            text: "Try to type another email or password or registering a new account"
+                        })
+                    break;
+                    case "auth/wrong-password":
+                        Swal.fire({
+                            icon: 'error',
+                            title: "Wrong password",
+                            text: "You have introduced a wrong password. Try again typing another one or creating a new account"
+                        })
+                    break;
+                    default:
+                        Swal.fire({
+                            icon: 'error',
+                            title: "Something went wrong",
+                            text: "Try again in a few minutes"
+                        })
+                    break;
+                }
+
             });
 
     }
@@ -113,11 +142,22 @@ export const startRegistering = ( user ) => {
 
         })
         .catch((error) => {
-            const errorCode = error.code;
-            const errorMessage = error.message;
-            
-            console.error( errorCode  );
-            console.error( error.message, errorMessage );
+            switch ( error.code ) {
+                case "auth/email-already-in-use":
+                    Swal.fire({
+                        icon: 'error',
+                        title: "Email already in use",
+                        text: "That email address has been already used by other user."
+                    })
+                break;
+                default:
+                    Swal.fire({
+                        icon: 'error',
+                        title: "Something went wrong",
+                        text: "Try again in a few minutes"
+                    })
+                break;
+            }
         });
 
     }

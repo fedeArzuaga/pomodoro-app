@@ -23,30 +23,25 @@ export const RegisterScreen = () => {
         email: "",
         password: "",
         confirm_password: "",
-        isValidate: false
     });
-
-    useEffect(() => {
-      
-        if ( validate.name.length === 0 && validate.email.length === 0 && validate.password.length === 0 && validate.confirm_password.length === 0 ) {
-            setValidate({
-                ...validate,
-                isValidate: true
-            })
-        }
-    
-    }, [ validate.name, validate.email, validate.password, validate.confirm_password ])
     
     
     const handleRegisterUser = (event) => {
         event.preventDefault();
         
-        if ( validate.isValidate ) {
+        if ( 
+            validate.name.length === 0 &&
+            validate.email.length === 0 &&
+            validate.password.length === 0 &&
+            validate.confirm_password.length === 0 
+         ) {
+
             const user = { name, email, password }
 
             dispatch(
                 startRegistering( user )
             );
+            
         }
 
     }

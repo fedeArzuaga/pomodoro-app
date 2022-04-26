@@ -7,6 +7,8 @@ export const PomodoroCard = ({ id, minutes, breakTime, rounds }) => {
 
     const { auth, myPomodoros } = useSelector( state => state );
     const { active } = myPomodoros;
+    const sidebar = document.querySelector("#sidebar");
+    const sidebarIcon = document.querySelector("#sidebar-open-icon");
 
     const dispatch = useDispatch();
 
@@ -20,9 +22,14 @@ export const PomodoroCard = ({ id, minutes, breakTime, rounds }) => {
     const handleSetActive = () => {
 
         if ( !active.isRunning ) {
+
+            sidebar.classList.remove('sidebar--visible')
+            sidebarIcon.classList.remove('sidebar__open-icon--opened')
+
             dispatch(
                 setActive( pomodoro )
             );
+
         } else {
             Swal.fire({
                 icon: 'error',

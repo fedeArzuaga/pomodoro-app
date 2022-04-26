@@ -1,23 +1,29 @@
 .sidebar {
-    background: rgba(0,0,0,0.2);
     width: 100%;
-    
     padding: 20px;
     padding-right: 0;
     height: 100%;
-    transition: all 1s ease;
+    transition: all 0.6s ease;
     position: fixed;
     top: calc(100% - 65px);
+    z-index: 500;
+    border-radius: 35px 35px 0 0;
+
+    &.sidebar--visible {
+        top: 0;
+        border-radius: 0;
+    }
 
     @media screen and (min-width: $bp-medium) {
         max-width: 400px;
         position: relative;
         top: 0;
+        border-radius: 0;
     }
 
     h1 {
         font-weight: 400;
-        font-size: 1.25re4m;
+        font-size: 1.5rem;
 
         @media screen and (min-width: $bp-medium) {
             font-weight: 700;
@@ -28,21 +34,56 @@
 
 }
 
+.sidebar__open-icon {
+    width: 30px;
+    height: 30px;
+    border: 2px solid $white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all .3s ease;
+
+    @media screen and (min-width: $bp-medium) {
+        display: none;
+    }
+
+    &.sidebar__open-icon--opened {
+        transform: rotate(180deg);
+    }
+
+    &:active {
+        background: $white;
+        color: $global-text-color;
+    }
+
+}
+
 .sidebar__container {
     overflow-y: auto;
     height: 100%;
     padding-right: 20px;
+    display: flex;
+    flex-direction: column;
+
+    @media (min-width: 650px) and (max-width: $bp-medium) {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+
 }
 
 .sidebar__pomodoro-card {
     border: 3px solid $white;
     border-radius: 10px;
-    padding-left: 10px;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding: 10px;
     background: rgba(0,0,0,0.0);
     cursor: pointer;
     transition: all .3s ease;
+
+    @media (min-width: 650px) and (max-width: $bp-medium) {
+        width: 50%;
+    }
 
     &:hover {
         background: rgba(0,0,0,0.3);
@@ -50,14 +91,21 @@
 
     & + .sidebar__pomodoro-card {
         margin-top: 1.25rem;
+
+        @media (min-width: 650px) and (max-width: $bp-medium) {
+            margin-top: 0rem;
+            margin-left: 1.25rem;
+        }
+        
     }
 
 }
 
 .sidebar__time-card {
+    justify-content: space-around;
 
     & > * + * {
-        margin-left: 1.875rem;
+        margin-left: 1rem;
     }
 
     .sidebar__time-content {
@@ -72,8 +120,8 @@
     }
 
     .sidebar__trash-icon {
-        flex: 1;
-        margin: auto;
+        // flex: 1;
+        // margin: auto;
         text-align: center;
         display: flex;
         justify-content: center;
