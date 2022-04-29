@@ -129,12 +129,17 @@ export const PomodoroCountdown = () => {
                                 Minutes
                             </div>
 
-                            <MofidyiersButtons
-                                property="minutes"
-                                min={ 0 }
-                                max={ 60 }
-                                quantity={ 5 }
-                            />
+                            {
+                                !isRunning
+                                    && (
+                                        <MofidyiersButtons
+                                            property="minutes"
+                                            min={ 0 }
+                                            max={ 60 }
+                                            quantity={ 5 }
+                                        />
+                                    )
+                            }
 
                         </label>
     
@@ -160,12 +165,17 @@ export const PomodoroCountdown = () => {
                                 { isRunning ? "Seconds" : "Break" }
                             </div>
 
-                            <MofidyiersButtons
-                                property="breakTime"
-                                min={ 0 }
-                                max={ 60 }
-                                quantity={ 5 }
-                            />
+                            {
+                                !isRunning
+                                    && (
+                                        <MofidyiersButtons
+                                            property="breakTime"
+                                            min={ 0 }
+                                            max={ 60 }
+                                            quantity={ 5 }
+                                        />
+                                    )
+                            }
 
                         </label>
     
@@ -191,12 +201,17 @@ export const PomodoroCountdown = () => {
                                         { rounds > 1 ? "Rounds" : "Round" }
                                     </div>
 
-                                    <MofidyiersButtons
-                                        property="rounds"
-                                        min={ 0 }
-                                        max={ 10 }
-                                        quantity={ 1 }
-                                    />
+                                    {
+                                        !isRunning
+                                            && (
+                                                <MofidyiersButtons
+                                                    property="rounds"
+                                                    min={ 0 }
+                                                    max={ 10 }
+                                                    quantity={ 1 }
+                                                />
+                                            )
+                                    }
 
                                 </label>
                             )
