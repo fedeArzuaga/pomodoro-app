@@ -1,8 +1,6 @@
 import { useEffect, useRef, useState } from "react";
-import { useDispatch } from "react-redux";
 import { showNotification } from "../helpers/showNotification";
 
-const sidebar = document.querySelector("#sidebar");
 
 export const useCountdown = ({ minutesTime, breakTime, roundsGoal }) => {
 
@@ -15,7 +13,6 @@ export const useCountdown = ({ minutesTime, breakTime, roundsGoal }) => {
     const [roundsDone, setRoundsDone] = useState(1);
     const [isOnPause, setIsOnPause] = useState( true );
 
-    const dispatch = useDispatch();
     const countdown = useRef(null);
 
     useEffect( () => {
@@ -66,7 +63,7 @@ export const useCountdown = ({ minutesTime, breakTime, roundsGoal }) => {
             }, 1000);
             
         } else if ( !isOnSession && roundsDone > 1 ) {
-            setMinutesTimeState( parseInt( breakTime ) );
+            setMinutesTimeState( parseInt( breakTimeState ) );
             setSecondsTime( 0 )
             
             if ( roundsDone > roundsGoalState ) {
@@ -132,7 +129,6 @@ export const useCountdown = ({ minutesTime, breakTime, roundsGoal }) => {
         isOnPause,
         minutesTimeState,
         secondsTime,
-        breakTime, 
         roundsGoalState,
         roundsDone, 
         handlePlayCountdown, 

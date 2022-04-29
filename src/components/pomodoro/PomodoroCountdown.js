@@ -4,6 +4,7 @@ import { Navigate } from 'react-router';
 import { setToggleActiveIsRunning, startAddingPomodoro } from '../../actions/pomodoros';
 import { useCountdown } from '../../hooks/useCountdown';
 import { useFormCountdown } from '../../hooks/useFormCountdown';
+import { MofidyiersButtons } from './MofidyiersButtons';
 
 const body = document.body;
 
@@ -26,7 +27,6 @@ export const PomodoroCountdown = () => {
         isOnPause,
         minutesTimeState,
         secondsTime,
-        breakTime,
         roundsGoalState,
         roundsDone,
         handlePlayCountdown,
@@ -123,10 +123,19 @@ export const PomodoroCountdown = () => {
                                     ? minutesTimeState < 10 ? "0" + minutesTimeState : minutesTimeState
                                     : minutesActive < 10 ? "0" + minutesActive : minutesActive }
                                 onChange={ handleInputChange }
+                                readOnly={ true }
                             />
                             <div>
                                 Minutes
                             </div>
+
+                            <MofidyiersButtons
+                                property="minutes"
+                                min={ 0 }
+                                max={ 60 }
+                                quantity={ 5 }
+                            />
+
                         </label>
     
                         <label
@@ -145,10 +154,19 @@ export const PomodoroCountdown = () => {
                                     ? secondsTime < 10 ? "0" + secondsTime : secondsTime
                                     : breakPomodoro < 10 ? "0" + breakPomodoro : breakPomodoro }
                                 onChange={ handleInputChange }
+                                readOnly={ true }
                             />
                             <div>
                                 { isRunning ? "Seconds" : "Break" }
                             </div>
+
+                            <MofidyiersButtons
+                                property="breakTime"
+                                min={ 0 }
+                                max={ 60 }
+                                quantity={ 5 }
+                            />
+
                         </label>
     
                         {
@@ -167,10 +185,19 @@ export const PomodoroCountdown = () => {
                                         min={1}
                                         value={ rounds < 10 ? "0" + rounds : rounds }
                                         onChange={ handleInputChange }
+                                        readOnly={ true }
                                     />
                                     <div>
                                         { rounds > 1 ? "Rounds" : "Round" }
                                     </div>
+
+                                    <MofidyiersButtons
+                                        property="rounds"
+                                        min={ 0 }
+                                        max={ 10 }
+                                        quantity={ 1 }
+                                    />
+
                                 </label>
                             )
                         }

@@ -66,6 +66,26 @@
 
         }
 
+        .pomodoro__button {
+            width: 30px;
+            height: 30px;
+            
+            @media screen and (min-width: $bp-small) {
+                width: 50px;
+                height: 50px;
+            }
+
+            & + .pomodoro__button {
+                margin-left: 0.6rem;
+
+                @media screen and (min-width: $bp-small) {
+                    margin-left: 1rem;
+                }
+
+            }
+
+        }
+
     }
 
     .pomodoro__form-input {
@@ -119,7 +139,7 @@
         font-size: 2rem;
     }
 
-    &:hover {
+    &:active {
         background: $white;
         color: $global-text-color;
     }
